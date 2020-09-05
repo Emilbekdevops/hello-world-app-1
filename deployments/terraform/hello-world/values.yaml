@@ -5,7 +5,7 @@
 replicaCount: 5
 
 image:
-  repository: docker.bugdalorian.com/hello-world-app-dev-feature:58be168
+  repository: docker.bugdalorian.com/hello-world-app-dev-feature:936a002
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -38,7 +38,7 @@ globalEnvironments:
   - name: ENVIRONMENT
     value: dev
 
-    
+
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
