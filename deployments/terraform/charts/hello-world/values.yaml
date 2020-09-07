@@ -25,9 +25,8 @@ ingress:
     - host: hello.bugdalorian.com
       paths: 
       - /
-
   tls: 
-  - secretName: hello-fuchicorp
+  - secretName: hello-adnan
     hosts:
     - hello.bugdalorian.com
 
