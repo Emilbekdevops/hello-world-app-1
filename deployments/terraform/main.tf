@@ -16,7 +16,7 @@ variable  "deployment_image" {
     default = "docker.bugdalorian.com/hello-world-app-dev-feature:f6858a7"
 }
 variable "deployment_environment" {
-    default = "stage"
+    default = "qa"
 }
 variable "deployment_endpoint" {
     type = "map"
