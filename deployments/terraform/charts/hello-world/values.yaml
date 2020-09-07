@@ -22,13 +22,13 @@ ingress:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
   hosts:
-    - host: hello.bugdalorian.com
+    - host: ${deployment_endpoint}
       paths: 
       - /
   tls: 
   - secretName: hello-adnan
     hosts:
-    - hello.bugdalorian.com
+    - ${deployment_endpoint}
 
 
 globalEnvironments:
