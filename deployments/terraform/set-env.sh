@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-DIR=$(pwd)
-DATAFILE="$DIR/$1"
+DATAFILE="$PWD/$1"
 
 BUCKET=$(sed -nr 's/^google_bucket_name\s*=\s*"([^"]*)".*$/\1/p'             "$DATAFILE")
 PROJECT=$(sed -nr 's/^google_project_id\s*=\s*"([^"]*)".*$/\1/p'             "$DATAFILE")
