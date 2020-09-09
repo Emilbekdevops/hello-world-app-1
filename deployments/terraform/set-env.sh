@@ -46,7 +46,7 @@ then
   echo "Using Project name for deployment. <google_project_id>: <$PROJECT>"
 fi
 
-cat << EOF > "$DIR/backend.tf"
+cat << EOF > "$$PWD/backend.tf"
 terraform {
   backend "gcs" {
     bucket  = "${BUCKET}"
@@ -55,12 +55,12 @@ terraform {
   }
 }
 EOF
-cat "$DIR/backend.tf"
+cat "$PWD/backend.tf"
 
 GOOGLE_APPLICATION_CREDENTIALS="${DIR}/${CREDENTIALS}"
 export GOOGLE_APPLICATION_CREDENTIALS
 export DATAFILE
-/bin/rm -rf "$DIR/.terraform" 2>/dev/null
+/bin/rm -rf "$$PWD/.terraform" 2>/dev/null
 ##/bin/rm -rf "$PWD/hello-world.tfvars" 2>/dev/null
 echo "setenv: Initializing terraform"
 terraform init #> /dev/null
