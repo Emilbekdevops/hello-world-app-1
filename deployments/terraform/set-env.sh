@@ -46,7 +46,7 @@ then
   echo "Using Project name for deployment. <google_project_id>: <$PROJECT>"
 fi
 
-cat << EOF > "$$PWD/backend.tf"
+cat << EOF > "$PWD/backend.tf"
 terraform {
   backend "gcs" {
     bucket  = "${BUCKET}"
