@@ -1,6 +1,5 @@
 module "academy-deploy" {
   source  = "fuchicorp/chart/helm"
-
   deployment_name        = "hello-world"
   deployment_environment = "${var.deployment_environment}"
   deployment_endpoint    = "${lookup(var.deployment_endpoint, "${var.deployment_environment}")}.${var.google_domain_name}"
@@ -13,7 +12,7 @@ output "application_endpoint" {
     value = "${lookup(var.deployment_endpoint, "${var.deployment_environment}")}.${var.google_domain_name}"
 }
 variable  "deployment_image" {
-    default = "docker.bugdalorian.com/hello-world-app-dev-feature:611c6b4"
+    default = "docker.bugdalorian.com/hello-world-app-dev-feature:1457f11"
 }
 variable "deployment_environment" {
     default = "qa"
