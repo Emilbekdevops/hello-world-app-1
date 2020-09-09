@@ -20,15 +20,15 @@ fi
 
 if [ -z "$PROJECT" ]
 then
-    echo "Inside <$DATAFILE> the <google_project_id> not found trying to find from <common_configuration.tfvars>"
-    PROJECT=$(sed -nr 's/^google_project_id\s*=\s*"([^"]*)".*$/\1/p'  "$PWD/common_configuration.tfvars")
+    echo "Inside <$DATAFILE> the <google_project_id> not found trying to find from <hello.tfvars>"
+    PROJECT=$(sed -nr 's/^google_project_id\s*=\s*"([^"]*)".*$/\1/p'  "$PWD/hello.tfvars")
     echo "Using FuchiCorp Google Project ID for deployment. <google_project_id> : <$PROJECT>"
 fi
 
 if [ -z "$BUCKET" ]
 then
-  echo "Inside <$DATAFILE> the <google_bucket_name> not found trying to find from <common_configuration.tfvars>"
-  BUCKET=$(sed -nr 's/^google_bucket_name\s*=\s*"([^"]*)".*$/\1/p'   "$PWD/common_configuration.tfvars")
+  echo "Inside <$DATAFILE> the <google_bucket_name> not found trying to find from <hello.tfvars>"
+  BUCKET=$(sed -nr 's/^google_bucket_name\s*=\s*"([^"]*)".*$/\1/p'   "$PWD/hello.tfvars")
   echo "Using FuchiCorp Google Bucket name for deployment. <google_bucket_name>: <$BUCKET>"
 fi
 
@@ -77,6 +77,6 @@ GOOGLE_APPLICATION_CREDENTIALS="${PWD}/${CREDENTIALS}"
 export GOOGLE_APPLICATION_CREDENTIALS
 export DATAFILE
 /bin/rm -rf "$PWD/.terraform" 2>/dev/null
-/bin/rm -rf "$PWD/common_configuration.tfvars" 2>/dev/null
+#/bin/rm -rf "$PWD/hello.tfvars" 2>/dev/null
 echo "setenv: Initializing terraform"
 terraform init #> /dev/null
