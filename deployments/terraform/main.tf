@@ -30,3 +30,6 @@ variable "deployment_endpoint" {
 variable "google_domain_name" {
     default = "bugdalorian.com"
 }
+variable "google_bucket_name" {
+    default = "adnan-fuchicorp"
+}
