@@ -21,10 +21,11 @@ then
     return 1
 fi
 
-if [ -z "$BUCKET" ]
+f [ -z "$BUCKET" ]
 then
-    echo "setenv: 'bucket_name' variable not set in configuration file."
-    return 1
+  echo "Inside <$DATAFILE> the <google_bucket_name> not found trying to find from <hello.tfvars>"
+  BUCKET=$(sed -nr 's/^google_bucket_name\s*=\s*"([^"]*)".*$/\1/p'   "$PWD/deployment_configuration.tfvars")
+  echo "Using FuchiCorp Google Bucket name for deployment. <google_bucket_name>: <$BUCKET>"
 fi
 
 if [ -z "$CREDENTIALS" ]
