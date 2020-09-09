@@ -14,9 +14,10 @@ output "application_endpoint" {
 variable  "deployment_image" {
     default = "docker.bugdalorian.com/hello-world-app-dev-feature:1457f11"
 }
-variable "deployment_environment" {
-    default = "qa"
-}
+#variable "deployment_environment" {
+#    default = "qa"
+#}
+
 variable "deployment_endpoint" {
     type = "map"
      default = {
