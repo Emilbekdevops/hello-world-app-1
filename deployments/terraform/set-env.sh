@@ -21,9 +21,9 @@ then
     return 1
 fi
 
-f [ -z "$BUCKET" ]
+if [ -z "$BUCKET" ]
 then
-  echo "Inside <$DATAFILE> the <google_bucket_name> not found trying to find from <hello.tfvars>"
+  echo "Inside <$DATAFILE> the <google_bucket_name> not found trying to find from <deployment_configuration.tfvars>"
   BUCKET=$(sed -nr 's/^google_bucket_name\s*=\s*"([^"]*)".*$/\1/p'   "$PWD/deployment_configuration.tfvars")
   echo "Using FuchiCorp Google Bucket name for deployment. <google_bucket_name>: <$BUCKET>"
 fi
