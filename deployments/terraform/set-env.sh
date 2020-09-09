@@ -42,8 +42,9 @@ fi
 
 if [ -z "$PROJECT" ]
 then
-    echo "setenv: 'google_project_id' variable not set in configuration file."
-    return 1
+  echo "Inside <$DATAFILE> the <google_project_id> not found trying to find from <deployment_configuration.tfvars>"
+  BUCKET=$(sed -nr 's/^google_project_id\s*=\s*"([^"]*)".*$/\1/p'   "$PWD/deployment_configuration.tfvars")
+  echo "Using Project name for deployment. <google_project_id>: <$PROJECT>
 fi
 
 cat << EOF > "$DIR/backend.tf"
